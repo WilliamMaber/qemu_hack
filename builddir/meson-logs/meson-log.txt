@@ -1,0 +1,11 @@
+Build started at 2022-01-17T22:02:50.863174
+Main binary: /usr/bin/python3
+Build Options: -Dbuildtype=debug
+Python system: Linux
+The Meson build system
+Version: 0.53.2
+Source dir: /home/william/Code/C/qemu
+Build dir: /home/william/Code/C/qemu/builddir
+Build type: native build
+
+meson.build:1:0: ERROR: Meson version is 0.53.2 but project requires >=0.58.2

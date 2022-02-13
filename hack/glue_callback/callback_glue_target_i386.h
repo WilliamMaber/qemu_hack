@@ -1,0 +1,10 @@
+void glue_kvm_sev_init(void);
+void glue_kvm_memcrypt_register_region(void *addr, size_t len);
+void glue_kvm_memcrypt_unregister_region(void *addr, size_t len);
+void glue_kvm_sev_change_state(const char *old, const char *new);
+void glue_kvm_sev_launch_start(int policy, void *session, void *pdh);
+void glue_kvm_sev_launch_update_data(void *addr, uint64_t len);
+void glue_kvm_sev_launch_measurement(const char *value);
+void glue_kvm_sev_launch_finish(void);
+void glue_kvm_sev_launch_secret(uint64_t hpa, uint64_t hva, uint64_t secret, int len);
+void glue_kvm_sev_attestation_report(const char *mnonce, const char *data);

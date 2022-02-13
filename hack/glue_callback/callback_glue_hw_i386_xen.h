@@ -1,0 +1,18 @@
+void glue_xen_platform_log(char *s);
+void glue_xen_pv_mmio_read(uint64_t addr);
+void glue_xen_pv_mmio_write(uint64_t addr);
+void glue_xen_ram_alloc(unsigned long ram_addr, unsigned long size);
+void glue_xen_client_set_memory(uint64_t start_addr, unsigned long size, bool log_dirty);
+void glue_handle_ioreq(void *req, uint32_t type, uint32_t dir, uint32_t df, uint32_t data_is_ptr, uint64_t addr, uint64_t data, uint32_t count, uint32_t size);
+void glue_handle_ioreq_read(void *req, uint32_t type, uint32_t df, uint32_t data_is_ptr, uint64_t addr, uint64_t data, uint32_t count, uint32_t size);
+void glue_handle_ioreq_write(void *req, uint32_t type, uint32_t df, uint32_t data_is_ptr, uint64_t addr, uint64_t data, uint32_t count, uint32_t size);
+void glue_cpu_ioreq_pio(void *req, uint32_t dir, uint32_t df, uint32_t data_is_ptr, uint64_t addr, uint64_t data, uint32_t count, uint32_t size);
+void glue_cpu_ioreq_pio_read_reg(void *req, uint64_t data, uint64_t addr, uint32_t size);
+void glue_cpu_ioreq_pio_write_reg(void *req, uint64_t data, uint64_t addr, uint32_t size);
+void glue_cpu_ioreq_move(void *req, uint32_t dir, uint32_t df, uint32_t data_is_ptr, uint64_t addr, uint64_t data, uint32_t count, uint32_t size);
+void glue_xen_map_resource_ioreq(uint32_t id, void *addr);
+void glue_cpu_ioreq_config_read(void *req, uint32_t sbdf, uint32_t reg, uint32_t size, uint32_t data);
+void glue_cpu_ioreq_config_write(void *req, uint32_t sbdf, uint32_t reg, uint32_t size, uint32_t data);
+void glue_xen_map_cache(uint64_t phys_addr);
+void glue_xen_remap_bucket(uint64_t index);
+void glue_xen_map_cache_return(void* ptr);

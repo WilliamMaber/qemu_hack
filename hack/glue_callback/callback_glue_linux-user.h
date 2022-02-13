@@ -1,0 +1,16 @@
+void glue_signal_table_init(int i);
+void glue_signal_do_sigaction_guest(int sig, int max);
+void glue_signal_do_sigaction_host(int sig, int max);
+void glue_user_setup_frame(void *env, uint64_t frame_addr);
+void glue_user_setup_rt_frame(void *env, uint64_t frame_addr);
+void glue_user_do_rt_sigreturn(void *env, uint64_t frame_addr);
+void glue_user_do_sigreturn(void *env, uint64_t frame_addr);
+void glue_user_force_sig(void *env, int target_sig, int host_sig);
+void glue_user_handle_signal(void *env, int target_sig);
+void glue_user_host_signal(void *env, int host_sig, int target_sig);
+void glue_user_queue_signal(void *env, int target_sig);
+void glue_user_s390x_restore_sigregs(void *env, uint64_t sc_psw_addr, uint64_t env_psw_addr);
+void glue_target_mprotect(uint64_t start, uint64_t len, int flags);
+void glue_target_mmap(uint64_t start, uint64_t len, int pflags, int mflags, int fd, uint64_t offset);
+void glue_target_mmap_complete(uint64_t retaddr);
+void glue_target_munmap(uint64_t start, uint64_t len);

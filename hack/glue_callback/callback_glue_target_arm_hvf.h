@@ -1,0 +1,11 @@
+void glue_hvf_unhandled_sysreg_read(uint64_t pc, uint32_t reg, uint32_t op0, uint32_t op1, uint32_t crn, uint32_t crm, uint32_t op2);
+void glue_hvf_unhandled_sysreg_write(uint64_t pc, uint32_t reg, uint32_t op0, uint32_t op1, uint32_t crn, uint32_t crm, uint32_t op2);
+void glue_hvf_inject_fiq(void);
+void glue_hvf_inject_irq(void);
+void glue_hvf_data_abort(uint64_t pc, uint64_t va, uint64_t pa, bool isv, bool iswrite, bool s1ptw, uint32_t len, uint32_t srt);
+void glue_hvf_sysreg_read(uint32_t reg, uint32_t op0, uint32_t op1, uint32_t crn, uint32_t crm, uint32_t op2, uint64_t val);
+void glue_hvf_sysreg_write(uint32_t reg, uint32_t op0, uint32_t op1, uint32_t crn, uint32_t crm, uint32_t op2, uint64_t val);
+void glue_hvf_unknown_hvc(uint64_t x0);
+void glue_hvf_unknown_smc(uint64_t x0);
+void glue_hvf_exit(uint64_t syndrome, uint32_t ec, uint64_t pc);
+void glue_hvf_psci_call(uint64_t x0, uint64_t x1, uint64_t x2, uint64_t x3, uint32_t cpuid);

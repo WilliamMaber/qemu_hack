@@ -1,0 +1,13 @@
+void glue_wct_init(void);
+void glue_wct_cmd_re(void);
+void glue_wct_cmd_st(void);
+void glue_wct_cmd_sp(void);
+void glue_wct_cmd_ts(int input);
+void glue_wct_cmd_other(const char *cmd);
+void glue_wct_speed(int speed);
+void glue_spice_chr_discard_write(int len);
+void glue_spice_vmc_write(ssize_t out, int len);
+void glue_spice_vmc_read(int bytes, int len);
+void glue_spice_vmc_register_interface(void *scd);
+void glue_spice_vmc_unregister_interface(void *scd);
+void glue_spice_vmc_event(int event);

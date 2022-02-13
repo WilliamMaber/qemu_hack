@@ -1,0 +1,10 @@
+void glue_get_skeys_nonzero(int rc);
+void glue_set_skeys_nonzero(int rc);
+void glue_ioinst(const char *insn);
+void glue_ioinst_sch_id(const char *insn, int cssid, int ssid, int schid);
+void glue_ioinst_chp_id(const char *insn, int cssid, int chpid);
+void glue_ioinst_chsc_cmd(uint16_t cmd, uint16_t len);
+void glue_cpu_set_state(int cpu_index, uint8_t state);
+void glue_cpu_halt(int cpu_index);
+void glue_cpu_unhalt(int cpu_index);
+void glue_sigp_finished(uint8_t order, int cpu_index, int dst_index, int cc);

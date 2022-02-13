@@ -1,0 +1,14 @@
+void glue_sun4m_cpu_set_irq_raise(int level);
+void glue_sun4m_cpu_set_irq_lower(int level);
+void glue_sun4m_iommu_mem_readl(uint64_t addr, uint32_t ret);
+void glue_sun4m_iommu_mem_writel(uint64_t addr, uint32_t val);
+void glue_sun4m_iommu_mem_writel_ctrl(uint64_t iostart);
+void glue_sun4m_iommu_mem_writel_tlbflush(uint32_t val);
+void glue_sun4m_iommu_mem_writel_pgflush(uint32_t val);
+void glue_sun4m_iommu_page_get_flags(uint64_t pa, uint64_t iopte, uint32_t ret);
+void glue_sun4m_iommu_translate_pa(uint64_t addr, uint64_t pa, uint32_t iopte);
+void glue_sun4m_iommu_bad_addr(uint64_t addr);
+void glue_leon3_set_irq(int intno);
+void glue_leon3_reset_irq(int intno);
+void glue_int_helper_icache_freeze(void);
+void glue_int_helper_dcache_freeze(void);

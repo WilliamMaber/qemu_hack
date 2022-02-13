@@ -1,0 +1,15 @@
+void glue_qcrypto_tls_creds_load_dh(void *creds, const char *filename);
+void glue_qcrypto_tls_creds_get_path(void *creds, const char *filename, const char *path);
+void glue_qcrypto_tls_creds_anon_load(void *creds, const char *dir);
+void glue_qcrypto_tls_creds_psk_load(void *creds, const char *dir);
+void glue_qcrypto_tls_creds_x509_load(void *creds, const char *dir);
+void glue_qcrypto_tls_creds_x509_check_basic_constraints(void *creds, const char *file, int status);
+void glue_qcrypto_tls_creds_x509_check_key_usage(void *creds, const char *file, int status, int usage, int critical);
+void glue_qcrypto_tls_creds_x509_check_key_purpose(void *creds, const char *file, int status, const char *usage, int critical);
+void glue_qcrypto_tls_creds_x509_load_cert(void *creds, int isServer, const char *file);
+void glue_qcrypto_tls_creds_x509_load_cert_list(void *creds, const char *file);
+void glue_qcrypto_tls_session_new(void *session, void *creds, const char *hostname, const char *authzid, int endpoint);
+void glue_qcrypto_tls_session_check_creds(void *session, const char *status);
+void glue_qcrypto_tls_cipher_suite_priority(const char *name);
+void glue_qcrypto_tls_cipher_suite_info(uint8_t data0, uint8_t data1, const char *version, const char *name);
+void glue_qcrypto_tls_cipher_suite_count(unsigned count);

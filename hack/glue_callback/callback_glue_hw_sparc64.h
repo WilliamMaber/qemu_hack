@@ -1,0 +1,16 @@
+void glue_ebus_isa_irq_handler(int n, int level);
+void glue_sun4u_iommu_mem_read(uint64_t addr, uint64_t val, int size);
+void glue_sun4u_iommu_mem_write(uint64_t addr, uint64_t val, int size);
+void glue_sun4u_iommu_translate(uint64_t addr, uint64_t trans_addr, uint64_t tte);
+void glue_sparc64_cpu_ivec_raise_irq(int irq);
+void glue_sparc64_cpu_ivec_lower_irq(int irq);
+void glue_sparc64_cpu_tick_irq_disabled(void);
+void glue_sparc64_cpu_tick_irq_fire(void);
+void glue_sparc64_cpu_stick_irq_disabled(void);
+void glue_sparc64_cpu_stick_irq_fire(void);
+void glue_sparc64_cpu_hstick_irq_disabled(void);
+void glue_sparc64_cpu_hstick_irq_fire(void);
+void glue_sparc64_cpu_tick_set_count(const char *name, uint64_t real_count, const char *npt, void *p);
+void glue_sparc64_cpu_tick_get_count(const char *name, uint64_t real_count, const char *npt, void *p);
+void glue_sparc64_cpu_tick_set_limit(const char *name, uint64_t real_limit, const char *dis, void *p, uint64_t limit, uint64_t t, uint64_t dt);
+void glue_sparc64_cpu_tick_set_limit_zero(const char *name);

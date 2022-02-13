@@ -1,0 +1,14 @@
+void glue_css_enable_facility(const char *facility);
+void glue_css_crw(uint8_t rsc, uint8_t erc, uint16_t rsid, const char *chained);
+void glue_css_chpid_add(uint8_t cssid, uint8_t chpid, uint8_t type);
+void glue_css_new_image(uint8_t cssid, const char *default_cssid);
+void glue_css_assign_subch(const char *do_assign, uint8_t cssid, uint8_t ssid, uint16_t schid, uint16_t devno);
+void glue_css_io_interrupt(int cssid, int ssid, int schid, uint32_t intparm, uint8_t isc, const char *conditional);
+void glue_css_adapter_interrupt(uint8_t isc);
+void glue_css_do_sic(uint16_t mode, uint8_t isc);
+void glue_virtio_ccw_interpret_ccw(int cssid, int ssid, int schid, int cmd_code);
+void glue_virtio_ccw_new_device(int cssid, int ssid, int schid, int devno, const char *devno_mode);
+void glue_virtio_ccw_set_ind(uint64_t ind_loc, uint8_t ind_old, uint8_t ind_new);
+void glue_s390_pci_clp_cap(const char *id, uint32_t cap);
+void glue_s390_pci_clp_cap_size(const char *id, uint32_t size, uint32_t cap);
+void glue_s390_pci_clp_dev_info(const char *id);

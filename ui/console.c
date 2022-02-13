@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 #include "qemu/osdep.h"
 #include "ui/console.h"
 #include "hw/qdev-core.h"
@@ -37,6 +36,7 @@
 #include "exec/memory.h"
 #include "io/channel-file.h"
 #include "qom/object.h"
+#include "hack/glue_callback/callback_glue_ui.h"
 
 #define DEFAULT_BACKSCROLL 512
 #define CONSOLE_CURSOR_PERIOD 500
@@ -2022,9 +2022,11 @@ QemuConsole *graphic_console_init(DeviceState *dev, uint32_t head,
     s = qemu_console_lookup_unused();
     if (s) {
         trace_console_gfx_reuse(s->index);
+        // glue_console_gfx_reuse(s->index);
         width = qemu_console_get_width(s, 0);
         height = qemu_console_get_height(s, 0);
     } else {
+        // glue_console_gfx_new();
         trace_console_gfx_new();
         s = new_console(ds, GRAPHIC_CONSOLE, head);
         s->ui_timer = timer_new_ms(QEMU_CLOCK_REALTIME,
@@ -2056,6 +2058,7 @@ void graphic_console_close(QemuConsole *con)
     int height = qemu_console_get_height(con, 480);
 
     trace_console_gfx_close(con->index);
+        // glue_console_gfx_close(con->index);
     object_property_set_link(OBJECT(con), "device", NULL, &error_abort);
     graphic_console_set_hwops(con, &unused_ops, NULL);
 
@@ -2364,6 +2367,7 @@ static void vc_chr_open(Chardev *chr,
     }
 
     trace_console_txt_new(width, height);
+        // glue_console_txt_new(width, height);
     if (width == 0 || height == 0) {
         s = new_console(NULL, TEXT_CONSOLE, 0);
     } else {

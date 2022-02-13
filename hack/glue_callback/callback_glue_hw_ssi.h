@@ -1,0 +1,17 @@
+void glue_aspeed_smc_flash_set_segment(int cs, uint64_t reg, uint64_t start, uint64_t end);
+void glue_aspeed_smc_flash_read(int cs, uint64_t addr,  uint32_t size, uint64_t data, int mode);
+void glue_aspeed_smc_do_snoop(int cs, int index, int dummies, int data);
+void glue_aspeed_smc_flash_write(int cs, uint64_t addr,  uint32_t size, uint64_t data, int mode);
+void glue_aspeed_smc_read(uint64_t addr,  uint32_t size, uint64_t data);
+void glue_aspeed_smc_dma_checksum(uint32_t addr, uint32_t data);
+void glue_aspeed_smc_dma_rw(const char *dir, uint32_t flash_addr, uint32_t dram_addr, uint32_t size);
+void glue_aspeed_smc_write(uint64_t addr,  uint32_t size, uint64_t data);
+void glue_aspeed_smc_flash_select(int cs, const char *prefix);
+void glue_npcm7xx_fiu_enter_reset(const char *id, int reset_type);
+void glue_npcm7xx_fiu_hold_reset(const char *id);
+void glue_npcm7xx_fiu_select(const char *id, int cs);
+void glue_npcm7xx_fiu_deselect(const char *id, int cs);
+void glue_npcm7xx_fiu_ctrl_read(const char *id, uint64_t addr, uint32_t data);
+void glue_npcm7xx_fiu_ctrl_write(const char *id, uint64_t addr, uint32_t data);
+void glue_npcm7xx_fiu_flash_read(const char *id, int cs, uint64_t addr, unsigned int size, uint64_t value);
+void glue_npcm7xx_fiu_flash_write(const char *id, unsigned cs, uint64_t addr, unsigned int size, uint64_t value);

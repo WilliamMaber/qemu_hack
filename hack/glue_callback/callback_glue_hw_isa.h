@@ -1,0 +1,14 @@
+void glue_superio_create_parallel(int id, uint16_t base, unsigned int irq);
+void glue_superio_create_serial(int id, uint16_t base, unsigned int irq);
+void glue_superio_create_floppy(int id, uint16_t base, unsigned int irq);
+void glue_superio_create_ide(int id, uint16_t base, unsigned int irq);
+void glue_pc87312_io_read(uint32_t addr, uint32_t val);
+void glue_pc87312_io_write(uint32_t addr, uint32_t val);
+void glue_apm_io_read(uint8_t addr, uint8_t val);
+void glue_apm_io_write(uint8_t addr, uint8_t val);
+void glue_via_isa_write(uint32_t addr, uint32_t val, int len);
+void glue_via_pm_write(uint32_t addr, uint32_t val, int len);
+void glue_via_pm_io_read(uint32_t addr, uint32_t val, int len);
+void glue_via_pm_io_write(uint32_t addr, uint32_t val, int len);
+void glue_via_superio_read(uint8_t addr, uint8_t val);
+void glue_via_superio_write(uint8_t addr, uint32_t val);

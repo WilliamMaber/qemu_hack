@@ -275,6 +275,10 @@ endif
 multiprocess_allowed = targetos == 'linux' and not get_option('multiprocess').disabled()
 
 # Target-specific libraries and flags
+
+py3_dep = dependency('python3-embed')
+
+
 libm = cc.find_library('m', required: false)
 threads = dependency('threads')
 util = cc.find_library('util', required: false)
@@ -2428,6 +2432,7 @@ stub_ss = ss.source_set()
 trace_ss = ss.source_set()
 user_ss = ss.source_set()
 util_ss = ss.source_set()
+hack_ss = ss.source_set()
 
 # accel modules
 qtest_module_ss = ss.source_set()
@@ -2553,7 +2558,7 @@ if 'CONFIG_VHOST_USER' in config_host
   libvhost_user = subproject('libvhost-user')
   vhost_user = libvhost_user.get_variable('vhost_user_dep')
 endif
-
+subdir('hack')
 subdir('qapi')
 subdir('qobject')
 subdir('stubs')
@@ -2770,12 +2775,17 @@ endif
 
 nm = find_program('nm')
 undefsym = find_program('scripts/undefsym.py')
+hack_ss = hack_ss.apply(config_host, strict: false)
+libhack = static_library('hack', hack_ss.sources() + genh, dependencies: [hack_ss.dependencies(),py3_dep])
+hack = declare_dependency(link_whole: [libhack])
+
+
 block_syms = custom_target('block.syms', output: 'block.syms',
-                             input: [libqemuutil, block_mods],
+                             input: [libqemuutil, block_mods,libhack],
                              capture: true,
                              command: [undefsym, nm, '@INPUT@'])
 qemu_syms = custom_target('qemu.syms', output: 'qemu.syms',
-                             input: [libqemuutil, softmmu_mods],
+                             input: [libqemuutil, softmmu_mods,libhack],
                              capture: true,
                              command: [undefsym, nm, '@INPUT@'])
 

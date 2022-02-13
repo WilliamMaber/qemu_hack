@@ -1,0 +1,15 @@
+void glue_alsa_revents(int revents);
+void glue_alsa_pollout(int i, int fd);
+void glue_alsa_set_handler(int events, int index, int fd, int err);
+void glue_alsa_wrote_zero(int len);
+void glue_alsa_read_zero(long len);
+void glue_alsa_xrun_out(void);
+void glue_alsa_xrun_in(void);
+void glue_alsa_resume_out(void);
+void glue_oss_version(int version);
+void glue_dbus_audio_register(const char *s, const char *dir);
+void glue_dbus_audio_put_buffer_out(size_t len);
+void glue_dbus_audio_read(size_t len);
+void glue_audio_timer_start(int interval);
+void glue_audio_timer_stop(void);
+void glue_audio_timer_delayed(int interval);

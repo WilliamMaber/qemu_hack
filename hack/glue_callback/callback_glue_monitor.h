@@ -1,0 +1,12 @@
+void glue_handle_hmp_command(void *mon, const char *cmdline);
+void glue_monitor_protocol_event_handler(uint32_t event, void *qdict);
+void glue_monitor_protocol_event_emit(uint32_t event, void *data);
+void glue_monitor_protocol_event_queue(uint32_t event, void *qdict, uint64_t rate);
+void glue_monitor_suspend(void *ptr, int cnt);
+void glue_monitor_qmp_in_band_enqueue(void *req, void *mon, unsigned len);
+void glue_monitor_qmp_in_band_dequeue(void *req, unsigned len);
+void glue_monitor_qmp_cmd_in_band(const char *id);
+void glue_monitor_qmp_err_in_band(const char *desc);
+void glue_monitor_qmp_cmd_out_of_band(const char *id);
+void glue_monitor_qmp_respond(void *mon, const char *json);
+void glue_handle_qmp_command(void *mon, const char *req);
